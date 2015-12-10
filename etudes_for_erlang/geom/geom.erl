@@ -11,10 +11,10 @@
 
 -spec(area(atom(), number(), number()) -> number()).
 
-area(rectangle, L, W) ->
+area(rectangle, L, W) when L >= 0, W >= 0 ->
      L * W;
-area(triangle, B, H) ->
+area(triangle, B, H) when B >= 0, H >= 0 ->
     B * H / 2.0;
-area(ellipse, A, B) ->
+area(ellipse, A, B) when A >= 0, B >= 0 ->
     math:pi() * A * B.
 
