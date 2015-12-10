@@ -3,7 +3,15 @@
 %% @version 0.2
 
 -module(geom).
--export([area/3]).
+-export([area/1]).
+
+%% @doc Calculates the area of a shape, given
+%% a tuple with the shape and two dimensions. 
+%% Calls a private function for the calculation.
+
+-spec(area({atom(), number(), number()}) -> number()).
+
+area({Shape,A,B}) -> area(Shape,A,B).
 
 %% @doc Calculates the area of a shape, given
 %% the shape and two dimensions. Uses an atom
@@ -18,4 +26,6 @@ area(triangle, B, H) when B >= 0, H >= 0 ->
 area(ellipse, A, B) when A >= 0, B >= 0 ->
     math:pi() * A * B;
 area(_,_,_) -> 0.
+
+
 
