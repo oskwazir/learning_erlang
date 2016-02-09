@@ -1,14 +1,13 @@
 -module(useless).
 -export([add/2, hello/0, greet_and_add_two/1]).
 add(A,B) ->
-    A + B.
+	A + B.
 
-%% Show greetings.
-%% io:format/1 is the standard function use to output text.
-
+%% Shows greetings.
+%% io:format/1 is the standard function to output text.
 hello() ->
-    io:format("Hello, world!~n").
+	io:format("Hello, world!~n").
 
 greet_and_add_two(X) ->
-    hello(),
-    add(X,2).
+	hello(),
+	add(X,2).
