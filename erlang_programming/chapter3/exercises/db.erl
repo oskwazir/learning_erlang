@@ -8,9 +8,21 @@
 	match/2
 	]).
 
+
 new() -> [].
 destroy(_) -> [].
-write(_,_,_)  -> [].
+
+write(Key,Value,DB) ->
+	[ {Key, Value} | DB ].
+
 delete(_,_)  -> [].
-read(_,_)  -> [].
+
+read(_,[]) -> 
+	{error, instance};
+read(Search, [ {Key, Value} | _ ])
+	when Search == Key ->
+	{ok, Value};
+read(Search, [ _ | Tail]) ->
+	read(Search,Tail).
+
 match(_,_)  -> [].
