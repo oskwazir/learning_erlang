@@ -5,6 +5,9 @@ deps
 *.beam
 *.plt
 erl_crash.dump
+*~
+*.swo
+*.swp
 ebin
 rel/example_project
 .concrete/DEV_MODE
