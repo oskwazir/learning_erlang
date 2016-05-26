@@ -1,5 +1,8 @@
 -module(kitchen).
--export([store/2,take/2,fridge/1]).
+-export([store/2,take/2,start/1,fridge/1]).
+
+start(FoodList) ->
+	spawn(?MODULE, fridge, [FoodList]).
 
 fridge(FoodList) ->
 	receive
